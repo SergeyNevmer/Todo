@@ -7,11 +7,11 @@ interface ITodo {
   status: boolean;
 }
 
-interface IInitialState {
+interface IState {
   todos: Array<ITodo>;
 }
 
-const initialState: IInitialState = {
+const initialState: IState = {
   todos: [],
 };
 
