@@ -1,0 +1,44 @@
+.btn {
+  padding: 8px 15px 8px 15px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 15px;
+  border-radius: 10px;
+  border: none;
+}
+
+.green {
+  background-color: #008900;
+}
+
+.green:hover {
+  background-color: #009d00;
+}
+
+.green:active {
+  background-color: #008900;
+}
+
+.red {
+  background-color: #c40000;
+}
+
+.red:hover {
+  background-color: #d80000;
+}
+
+.red:active {
+  background-color: #c40000;
+}
+
+.blue {
+  background-color: #0000ff;
+}
+
+.blue:hover {
+  background-color: #3333ff;
+}
+
+.blue:active {
+  background-color: #0000ff;
+}
