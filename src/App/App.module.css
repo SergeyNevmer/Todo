@@ -17,10 +17,24 @@
   align-items: center;
 }
 
+.taskList {
+  overflow-y: scroll;
+  width: 100%;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .list {
+  width: 530px;
   padding: 0;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+}
+
+.list li:not(:last-child) {
+  margin-bottom: 10px;
 }
 
 .inputSection {

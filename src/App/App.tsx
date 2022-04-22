@@ -6,19 +6,24 @@ import styles from "./App.module.css";
 import { addTodo } from "../redux/todoSlice";
 import { useAppSelector } from "../hooks/useAppSelector";
 import { useAppDispatch } from "../hooks/useAppDispatch";
+import { ITodo } from "../redux/types";
 
 //Todo add status in task
 
 export const App: React.FC = () => {
   const [text, setText] = useState<string>("");
-  const todos = useAppSelector((state) => state.todo.todos); // : Array<ITodoObj | []>
+  const todos: Array<ITodo> = useAppSelector((state) => state.todo.todos);
   const dispatch = useAppDispatch();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setText(event.target.value);
   };
 
+  // Todo make check for spaces
+
   const handleClick = (event: React.MouseEvent): void => {
+    if (!text) return;
+
     dispatch(addTodo(text));
     setText("");
   };
@@ -41,7 +46,7 @@ export const App: React.FC = () => {
             {todos.length >= 1 && (
               <ul className={styles.list}>
                 {todos.map((todo) => (
-                  <Task key={todo.id} text={todo.text} />
+                  <Task key={todo.id} id={todo.id} text={todo.text} />
                 ))}
               </ul>
             )}
