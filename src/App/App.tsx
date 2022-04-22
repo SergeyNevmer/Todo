@@ -20,7 +20,6 @@ export const App: React.FC = () => {
   };
 
   // Todo make check for spaces
-
   const handleClick = (event: React.MouseEvent): void => {
     if (!text) return;
 
@@ -46,7 +45,12 @@ export const App: React.FC = () => {
             {todos.length >= 1 && (
               <ul className={styles.list}>
                 {todos.map((todo) => (
-                  <Task key={todo.id} id={todo.id} text={todo.text} />
+                  <Task
+                    key={todo.id}
+                    id={todo.id}
+                    text={todo.text}
+                    status={todo.status}
+                  />
                 ))}
               </ul>
             )}
