@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Task.module.css";
 import { Button } from "../Button/Button";
 import { useAppDispatch } from "../../hooks/useAppDispatch";
-import { removeTodo } from "../../redux/todoSlice";
+import { removeTodo, changeStatus } from "../../redux/todoSlice";
 
 interface ITask {
   id: string;
@@ -31,7 +31,8 @@ export const Task: React.FC<ITask> = ({ text, id, status }) => {
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    console.log(event.target.checked, event.target.id);
+    //need to change the logic method changeStatus
+    dispatch(changeStatus(event.target.id));
   };
 
   return (
@@ -41,7 +42,7 @@ export const Task: React.FC<ITask> = ({ text, id, status }) => {
           id={id}
           className={styles.status}
           type="checkbox"
-          defaultChecked={status}
+          checked={status}
           onChange={handleChange}
         />
         <p>{text}</p>
