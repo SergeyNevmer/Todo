@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Button.module.css";
 
 type color = "blue" | "green" | "red";
-type wording = "Edit" | "Add" | "Delete";
+type wording = "Edit" | "Add" | "Delete" | "Cancel" | "Save change";
 
 export interface IButton {
   id?: string;

@@ -4,6 +4,7 @@ import { Button } from "../Button/Button";
 import { useAppDispatch } from "../../hooks/useAppDispatch";
 import { removeTodo, changeStatus } from "../../redux/todoSlice";
 import { changeFlag } from "../../redux/flagSlice";
+import { setId } from "../../redux/idSlice";
 
 interface ITask {
   id: string;
@@ -20,6 +21,7 @@ export const Task: React.FC<ITask> = ({ text, id, status }) => {
     switch (target.name) {
       case "Edit":
         console.log(target.name, target.id);
+        dispatch(setId(target.id));
         dispatch(changeFlag());
         break;
 

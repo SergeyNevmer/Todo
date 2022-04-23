@@ -28,6 +28,7 @@ export const App: React.FC = () => {
     setText("");
   };
 
+  //TODO:change input
   return (
     <>
       {flag && <Modal />}
