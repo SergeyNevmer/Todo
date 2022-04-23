@@ -11,8 +11,6 @@ export interface IButton {
   func?: (event: React.MouseEvent) => void;
 }
 
-//Todo make a custom object with settings for the button
-
 export const Button: React.FC<IButton> = ({ text, colour, func, id }) => {
   return (
     <button

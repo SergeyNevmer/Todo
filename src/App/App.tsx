@@ -2,24 +2,25 @@ import React, { useState } from "react";
 import { Header } from "../components/Header/Header";
 import { Task } from "../components/Task/Task";
 import { Button } from "../components/Button/Button";
+import { Modal } from "../components/Modal/Modal";
 import styles from "./App.module.css";
 import { addTodo } from "../redux/todoSlice";
 import { useAppSelector } from "../hooks/useAppSelector";
 import { useAppDispatch } from "../hooks/useAppDispatch";
 import { ITodo } from "../redux/types";
 
-//Todo add status in task
-
+//TODO: add status in task
 export const App: React.FC = () => {
   const [text, setText] = useState<string>("");
   const todos: Array<ITodo> = useAppSelector((state) => state.todo.todos);
+  const flag: boolean = useAppSelector((state) => state.flag.flag);
   const dispatch = useAppDispatch();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setText(event.target.value);
   };
 
-  // Todo make check for spaces
+  //TODO: make check for spaces
   const handleClick = (event: React.MouseEvent): void => {
     if (!text) return;
 
@@ -29,6 +30,7 @@ export const App: React.FC = () => {
 
   return (
     <>
+      {flag && <Modal />}
       <Header />
       <main className={styles.main}>
         <article className={styles.container}>

@@ -3,6 +3,7 @@ import styles from "./Task.module.css";
 import { Button } from "../Button/Button";
 import { useAppDispatch } from "../../hooks/useAppDispatch";
 import { removeTodo, changeStatus } from "../../redux/todoSlice";
+import { changeFlag } from "../../redux/flagSlice";
 
 interface ITask {
   id: string;
@@ -19,6 +20,7 @@ export const Task: React.FC<ITask> = ({ text, id, status }) => {
     switch (target.name) {
       case "Edit":
         console.log(target.name, target.id);
+        dispatch(changeFlag());
         break;
 
       case "Delete":
@@ -31,7 +33,7 @@ export const Task: React.FC<ITask> = ({ text, id, status }) => {
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    //need to change the logic method changeStatus
+    //TODO: need to change the logic method changeStatus
     dispatch(changeStatus(event.target.id));
   };
 
