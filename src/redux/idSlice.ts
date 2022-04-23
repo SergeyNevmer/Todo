@@ -15,8 +15,11 @@ const idSlice = createSlice({
     setId: (state, action: PayloadAction<string>) => {
       state.id = action.payload;
     },
+    removeId: (state) => {
+      state.id = "";
+    },
   },
 });
 
-export const { setId } = idSlice.actions;
+export const { setId, removeId } = idSlice.actions;
 export default idSlice.reducer;

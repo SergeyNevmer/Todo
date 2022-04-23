@@ -20,7 +20,6 @@ export const Task: React.FC<ITask> = ({ text, id, status }) => {
 
     switch (target.name) {
       case "Edit":
-        console.log(target.name, target.id);
         dispatch(setId(target.id));
         dispatch(changeFlag());
         break;

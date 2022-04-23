@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./SvgSelector.module.css";
 import { useAppDispatch } from "../../hooks/useAppDispatch";
 import { changeFlag } from "../../redux/flagSlice";
+import { removeId } from "../../redux/idSlice";
 
 interface ISvgSelector {
   id: string;
@@ -11,6 +12,7 @@ export const SvgSelector: React.FC<ISvgSelector> = ({ id }) => {
   const dispatch = useAppDispatch();
 
   const handleClick = (event: React.MouseEvent): void => {
+    dispatch(removeId());
     dispatch(changeFlag());
   };
 

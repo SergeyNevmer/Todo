@@ -2,6 +2,11 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { v4 as uuidv4 } from "uuid";
 import { ITodo } from "./types";
 
+interface IEditText {
+  id: string;
+  text: string;
+}
+
 interface IState {
   todos: Array<ITodo>;
 }
@@ -31,8 +36,18 @@ const todoSlice = createSlice({
 
       state.todos.splice(index, 1, newObj);
     },
+    editText: (state, action: PayloadAction<IEditText>) => {
+      const index = state.todos.findIndex(
+        (todo) => todo.id === action.payload.id
+      );
+      const newObj = state.todos[index];
+      newObj.text = action.payload.text;
+
+      state.todos.splice(index, 1, newObj);
+    },
   },
 });
 
-export const { addTodo, removeTodo, changeStatus } = todoSlice.actions;
+export const { addTodo, removeTodo, changeStatus, editText } =
+  todoSlice.actions;
 export default todoSlice.reducer;
