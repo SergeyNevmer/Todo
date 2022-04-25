@@ -12,6 +12,8 @@ import { ITodo } from "../redux/types";
 import { checkSpaces } from "../utils/checkSpaces";
 
 //TODO: add status in task
+//TODO: add custom style for checkbox
+//TODO: add animation to tasks
 export const App: React.FC = () => {
   const [text, setText] = useState<string>("");
   const todos: Array<ITodo> = useAppSelector((state) => state.todo.todos);
