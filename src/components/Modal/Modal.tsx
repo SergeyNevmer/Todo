@@ -9,8 +9,6 @@ import { removeId } from "../../redux/idSlice";
 import { changeFlag } from "../../redux/flagSlice";
 import { editText } from "../../redux/todoSlice";
 
-//TODO: If press btn close modal or cancel remove str
-
 export const Modal: React.FC = () => {
   const [text, setText] = useState<string>("");
   const dispatch = useAppDispatch();
@@ -25,15 +23,12 @@ export const Modal: React.FC = () => {
 
     switch (target.name) {
       case "Save change":
-        console.log(id, text);
         dispatch(editText({ id: id, text: text }));
-        setText("");
         dispatch(removeId());
         dispatch(changeFlag());
         break;
 
       case "Cancel":
-        console.log(target);
         dispatch(removeId());
         dispatch(changeFlag());
         break;

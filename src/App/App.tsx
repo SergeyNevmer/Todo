@@ -1,12 +1,17 @@
 import React, { useState } from "react";
+
+import styles from "./App.module.css";
+
 import { Header } from "../components/Header/Header";
 import { Task } from "../components/Task/Task";
 import { Button } from "../components/Button/Button";
 import { Modal } from "../components/Modal/Modal";
-import styles from "./App.module.css";
-import { addTodo } from "../redux/todoSlice";
+import { Input } from "../components/Input/Input";
+
 import { useAppSelector } from "../hooks/useAppSelector";
 import { useAppDispatch } from "../hooks/useAppDispatch";
+
+import { addTodo } from "../redux/todoSlice";
 import { ITodo } from "../redux/types";
 
 //TODO: add status in task
@@ -28,7 +33,6 @@ export const App: React.FC = () => {
     setText("");
   };
 
-  //TODO:change input
   return (
     <>
       {flag && <Modal />}
@@ -36,10 +40,9 @@ export const App: React.FC = () => {
       <main className={styles.main}>
         <article className={styles.container}>
           <section className={styles.inputSection}>
-            <input
-              type="text"
+            <Input
               value={text}
-              onChange={handleChange}
+              func={handleChange}
               placeholder="What needs to be done?"
             />
             <Button text="Add" colour="blue" func={handleClick} />
