@@ -1,18 +1,15 @@
 import React, { useState } from "react";
-
 import styles from "./App.module.css";
-
 import { Header } from "../components/Header/Header";
 import { Task } from "../components/Task/Task";
 import { Button } from "../components/Button/Button";
 import { Modal } from "../components/Modal/Modal";
 import { Input } from "../components/Input/Input";
-
 import { useAppSelector } from "../hooks/useAppSelector";
 import { useAppDispatch } from "../hooks/useAppDispatch";
-
 import { addTodo } from "../redux/todoSlice";
 import { ITodo } from "../redux/types";
+import { checkSpaces } from "../utils/checkSpaces";
 
 //TODO: add status in task
 export const App: React.FC = () => {
@@ -25,9 +22,11 @@ export const App: React.FC = () => {
     setText(event.target.value);
   };
 
-  //TODO: make check for spaces
   const handleClick = (event: React.MouseEvent): void => {
-    if (!text) return;
+    if (!text || !checkSpaces(text)) {
+      setText("");
+      return;
+    }
 
     dispatch(addTodo(text));
     setText("");

@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import styles from "./Modal.module.css";
-import { SvgSelector } from "../SvgSelector/SvgSelector";
 import { Input } from "../Input/Input";
 import { Button } from "../Button/Button";
+import { SvgSelector } from "../SvgSelector/SvgSelector";
 import { useAppDispatch } from "../../hooks/useAppDispatch";
 import { useAppSelector } from "../../hooks/useAppSelector";
 import { removeId } from "../../redux/idSlice";
 import { changeFlag } from "../../redux/flagSlice";
 import { editText } from "../../redux/todoSlice";
+import { checkSpaces } from "../../utils/checkSpaces";
 
 export const Modal: React.FC = () => {
   const [text, setText] = useState<string>("");
@@ -23,6 +24,11 @@ export const Modal: React.FC = () => {
 
     switch (target.name) {
       case "Save change":
+        if (!text || !checkSpaces(text)) {
+          setText("");
+          return;
+        }
+
         dispatch(editText({ id: id, text: text }));
         dispatch(removeId());
         dispatch(changeFlag());
