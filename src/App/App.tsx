@@ -22,7 +22,7 @@ export const App: React.FC = () => {
     setText(event.target.value);
   };
 
-  const handleClick = (event: React.MouseEvent): void => {
+  const handleClick = (): void => {
     if (!text || !checkSpaces(text)) {
       setText("");
       return;

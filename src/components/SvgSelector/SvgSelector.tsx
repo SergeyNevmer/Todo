@@ -11,7 +11,7 @@ interface ISvgSelector {
 export const SvgSelector: React.FC<ISvgSelector> = ({ id }) => {
   const dispatch = useAppDispatch();
 
-  const handleClick = (event: React.MouseEvent): void => {
+  const handleClick = (): void => {
     dispatch(removeId());
     dispatch(changeFlag());
   };
