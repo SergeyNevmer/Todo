@@ -40,7 +40,7 @@ export const Task: React.FC<ITask> = ({ text, id, status }) => {
 
   return (
     <li className={styles.task}>
-      <div className={styles.text}>
+      <div className={styles.container}>
         <input
           id={id}
           className={styles.status}
@@ -48,7 +48,9 @@ export const Task: React.FC<ITask> = ({ text, id, status }) => {
           checked={status}
           onChange={handleChange}
         />
-        <p>{text}</p>
+        <p className={status ? `${styles.active}` : `${styles.default}`}>
+          {text}
+        </p>
       </div>
       <div className={styles.buttons}>
         <Button func={handleClick} text="Edit" id={id} colour="green" />
