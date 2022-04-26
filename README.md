@@ -9,4 +9,4 @@
 - React
 - Redux Toolkit
 
-## Active link sergeynevmer.github.io/Todo
+## Active link https://sergeynevmer.github.io/Todo/
